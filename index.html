@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crystal Madness!</title>
+
+	<!-- reset css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<!-- Bootstrap File -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Java Script -->
+    <link rel="javascript" type="text/javascript" href="assets/javascript/game.js">
+
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+
+
+</head>
+<body>
+
+<header>Crystals Collector</header>
+
+<div container>
+	<div class="row">
+		<!-- //Instruction Box -->
+		<div class="col-lg-4" id="directions">
+		<p> You will be given a random number at the start of the game.</p>
+
+		<p> There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score. </p>
+
+		<p> You win the game by matching your total score to random number, you losee the game if your total score goes above the random number. </p>
+
+		<p>The value of each crystal is hidden from you until you click on it. </p>
+
+		<p>Each time when the game starts, the game will change the values of each crystal</p>
+		</div>
+
+		<div class="col-lg-4" id="crystals">
+			<button id="button1" class="btn btn-crystal" value=("")><h1>1</h1></button>
+            <button id="button2" class="btn btn-crystal" value=("")><h1>2</h1></button>
+            <button id="button3" class="btn btn-crystal" value=("")><h1>3</h1></button>
+            <button id="button4" class="btn btn-crystal" value=("")><h1>4</h1></button>
+            <br><br>
+        </div>
+
+        <div class="col-lg-4" id="random">
+        	
+        </div>
+        <div class="col-lg-4" id="score" value=("0") >
+        	<h3>Your total score is:</h3>
+        </div>
+        <div class="col-lg-4" id="counter"></div>
+            
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">
+
+	$( document ).ready(function() {
+		
+		
+		var counter;
+
+	function randomNumber(min, max) {
+		return Math.round(Math.random()* (max-min) + min);
+	}
+
+	var rand = randomNumber(19,121);
+
+	$("#random").append(rand);
+
+
+	
+	$('#button1').val(randomNumber(1,12));
+
+	$('#button2').val(randomNumber(1,12));
+
+	$('#button3').val(randomNumber(1,12));
+
+	$('#button4').val(randomNumber(1,12));
+
+	
+
+	var score = 0;
+	 $('button').click(function(){
+	 	score = Number(score) + Number($(this).val());
+	 	$('#score').text("Your total score is:"+score);
+	 });
+
+
+
+
+});
+
+
+  	
+	
+</script>
+
+</body>
+</html>
