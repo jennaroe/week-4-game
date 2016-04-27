@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<header>Crystals Collector</header>
+<header>Moon Crystal Escalation</header>
 
 <div container>
 	<div class="row">
@@ -37,10 +37,10 @@
 		</div>
 
 		<div class="col-lg-4" id="crystals">
-			<button id="button1" class="btn btn-crystal" value=("")><h1>1</h1></button>
-            <button id="button2" class="btn btn-crystal" value=("")><h1>2</h1></button>
-            <button id="button3" class="btn btn-crystal" value=("")><h1>3</h1></button>
-            <button id="button4" class="btn btn-crystal" value=("")><h1>4</h1></button>
+			<button id="button1" class="btn btn-crystal" value=""><h1>1</h1></button>
+            <button id="button2" class="btn btn-crystal" value=""><h1>2</h1></button>
+            <button id="button3" class="btn btn-crystal" value=""><h1>3</h1></button>
+            <button id="button4" class="btn btn-crystal" value=""><h1>4</h1></button>
             <br><br>
         </div>
 
@@ -48,9 +48,14 @@
         	
         </div>
         <div class="col-lg-4" id="score" value=("0") >
-        	<h3>Your total score is:</h3>
+        	<p>Your total score is:</p>
         </div>
-        <div class="col-lg-4" id="counter"></div>
+        <div class="col-lg-4" id="counter">
+        	<ul>
+        	<li>Wins: <span id="win"></span></li>
+        	<li>Losses: <span id="lose"></span></li>
+        	</ul>
+        </div>
             
 		</div>
 	</div>
@@ -60,20 +65,19 @@
 <script type="text/javascript">
 
 	$( document ).ready(function() {
-		
-		
+		var wins = 0;
+		var losses = 0;
+		var score = 0;
 		var counter;
+		var rand = randomNumber(19,121);
+
 
 	function randomNumber(min, max) {
 		return Math.round(Math.random()* (max-min) + min);
 	}
-
-	var rand = randomNumber(19,121);
-
+	
 	$("#random").append(rand);
 
-
-	
 	$('#button1').val(randomNumber(1,12));
 
 	$('#button2').val(randomNumber(1,12));
@@ -84,17 +88,54 @@
 
 	
 
-	var score = 0;
-	 $('button').click(function(){
-	 	score = Number(score) + Number($(this).val());
-	 	$('#score').text("Your total score is:"+score);
+	var updateScore = function(){
+		score = 0;
+		$('#wins').empty();
+		$('#wins').append(wins);
+		$('#losses').empty();
+		$('#losses').append(losses);
+	};
+
+	var refresh = function(){
+		$("#random").append(rand);
+		
+		$('#button1').val(randomNumber(1,12));
+
+		$('#button2').val(randomNumber(1,12));
+
+		$('#button3').val(randomNumber(1,12));
+
+		$('#button4').val(randomNumber(1,12));
+
+		
+		};
+		
+		var score = 0;
+		$('button').click(function(){
+		 	score = Number(score) + Number($(this).val());
+		 	$('#score').text("Your total score is: " +score);
+
+	 	if (rand == score) {
+           wins = wins + 1;
+           $('#win').text(wins);
+           alert("You Win!!! Play Again?");
+           updateScore();
+           refresh();
+            
+         }    
+        else if (rand < score) {
+            losses = losses + 1;
+            $('#lose').text(losses);
+            alert("YOU LOSE!!! Play Again?");
+            updateScore();
+            refresh();
+            
+         }     
 	 });
-
-
-
 
 });
 
+//update score (!alert)
 
   	
 	
