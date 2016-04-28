@@ -1,54 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Crystal Madness!</title>
+	<title>Sailor Moon Crystal!</title>
 
 	<!-- reset css -->
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<!-- Bootstrap File -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<!-- css -->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!-- Java Script -->
-    <link rel="javascript" type="text/javascript" href="assets/javascript/game.js">
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	
+    <!-- font -->
+    <link href='https://fonts.googleapis.com/css?family=Merienda+One|Oleo+Script+Swash+Caps|Bilbo+Swash+Caps|Stalemate|Sail|Henny+Penny|Lovers+Quarrel|Mystery+Quest|Emilys+Candy|Spirax|Bigelow+Rules' rel='stylesheet' type='text/css'>
+    <!-- css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<!-- JQuery -->
 	<script src="https://code.jquery.com/jquery.js"></script>
+	<!-- Java Script -->
+   	<script src="assets/javascript/game.js"></script>
+	
 
 
 </head>
 <body>
 
-<header>Moon Crystal Escalation</header>
+<header class="page-header">
+<h1> <i class="fa fa-moon-o" aria-hidden="true"></i>
+Moon Crystal Power Play <i class="fa fa-moon-o" aria-hidden="true"></i>
+</h1>
+</header>
 
 <div container>
 	<div class="row">
 		<!-- //Instruction Box -->
 		<div class="col-lg-4" id="directions">
-		<p> You will be given a random number at the start of the game.</p>
+		<p> * You will be given a random number at the start of the game.</p>
 
-		<p> There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score. </p>
+		<p>* There are four crystal brooches below. By clicking on a brooch you will add a specific amount of points to your Crystal Value. </p>
 
-		<p> You win the game by matching your total score to random number, you losee the game if your total score goes above the random number. </p>
+		<p>* You win the game by matching your Crystal Value to the Match Value, you lose the game if your total score goes above the Match Value. </p>
 
-		<p>The value of each crystal is hidden from you until you click on it. </p>
+		<p>* The value of each crystal brooch is hidden from you until you click on it. </p>
 
-		<p>Each time when the game starts, the game will change the values of each crystal</p>
+		<p>* Each time the game re-starts, the game will change the values of each crystal brooch. </p>
 		</div>
 
 		<div class="col-lg-4" id="crystals">
-			<button id="button1" class="btn btn-crystal" value=""><h1>1</h1></button>
-            <button id="button2" class="btn btn-crystal" value=""><h1>2</h1></button>
-            <button id="button3" class="btn btn-crystal" value=""><h1>3</h1></button>
-            <button id="button4" class="btn btn-crystal" value=""><h1>4</h1></button>
+			<button id="button1" class="btn btn-crystal" value=""><img src="assets/images/button1.png"></button>
+            <button id="button2" class="btn btn-crystal" value=""><img src="assets/images/button4.png"></button>
+            <button id="button3" class="btn btn-crystal" value=""><img src="assets/images/button3.png"></button>
+            <button id="button4" class="btn btn-crystal" value=""><img src="assets/images/button2.png"></button>
             <br><br>
         </div>
 
         <div class="col-lg-4" id="random">
-        	
+        	<p>Match Value:</p>
         </div>
         <div class="col-lg-4" id="score" value=("0") >
-        	<p>Your total score is:</p>
+        	<p>Crystal Value:</p>
         </div>
         <div class="col-lg-4" id="counter">
         	<ul>
@@ -61,85 +70,7 @@
 	</div>
 </div>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-<script type="text/javascript">
 
-	$( document ).ready(function() {
-		var wins = 0;
-		var losses = 0;
-		var score = 0;
-		var counter;
-		var rand = randomNumber(19,121);
-
-
-	function randomNumber(min, max) {
-		return Math.round(Math.random()* (max-min) + min);
-	}
-	
-	$("#random").append(rand);
-
-	$('#button1').val(randomNumber(1,12));
-
-	$('#button2').val(randomNumber(1,12));
-
-	$('#button3').val(randomNumber(1,12));
-
-	$('#button4').val(randomNumber(1,12));
-
-	
-
-	var updateScore = function(){
-		score = 0;
-		$('#wins').empty();
-		$('#wins').append(wins);
-		$('#losses').empty();
-		$('#losses').append(losses);
-	};
-
-	var refresh = function(){
-		$("#random").append(rand);
-		
-		$('#button1').val(randomNumber(1,12));
-
-		$('#button2').val(randomNumber(1,12));
-
-		$('#button3').val(randomNumber(1,12));
-
-		$('#button4').val(randomNumber(1,12));
-
-		
-		};
-		
-		var score = 0;
-		$('button').click(function(){
-		 	score = Number(score) + Number($(this).val());
-		 	$('#score').text("Your total score is: " +score);
-
-	 	if (rand == score) {
-           wins = wins + 1;
-           $('#win').text(wins);
-           alert("You Win!!! Play Again?");
-           updateScore();
-           refresh();
-            
-         }    
-        else if (rand < score) {
-            losses = losses + 1;
-            $('#lose').text(losses);
-            alert("YOU LOSE!!! Play Again?");
-            updateScore();
-            refresh();
-            
-         }     
-	 });
-
-});
-
-//update score (!alert)
-
-  	
-	
-</script>
 
 </body>
 </html>

@@ -1,0 +1,84 @@
+body{
+  background: #cccccc;
+  background-image: url("../images/smbg2.jpg");
+  align-content: center;
+  text-align: center;
+  font-family: 'Merienda One', cursive;
+}
+.page-header{
+	width: 100%;
+	height: 30%;
+	padding-top:1%;
+	margin-bottom: 2%;
+	font-family: 'Mystery Quest', cursive;
+	border-style: inset !important;
+	border-color: #ffffff
+	border-width: 3px;
+
+}
+header h1{
+		font-size: 60px !important;
+		color: #483d8b;
+}
+i {
+	color: #cccc66;
+}
+
+#directions{
+  padding: 0% 3% 0% 3%;
+  color:#cccc66;
+  font-size: 20px;
+  text-align: left;
+  margin-left: 2%;
+  
+}
+
+#crystals{
+  text-align: center;
+  align-content: center;
+  margin-bottom: 3%;
+}
+button{
+  height:170px;
+  width:170px;
+  padding:0% !important;
+  margin:1%;
+  background: none !important;
+
+}
+button img{
+	height:100px;
+	width:100px;
+}
+#random{
+	background: #ffffff;
+	width: 15%;
+	height: 20%;
+	opacity: 0.5;
+  	align-self: right;
+  	margin:1%;
+  	font-size: 20px;
+  	color: #483d8b;
+
+}
+
+#counter{
+	background: #ffffff;
+	width: 15%;
+	height: 20%;
+	opacity: 0.5;
+	margin:1%;
+	font-size: 20px;
+	color: #483d8b;
+}
+
+#score{
+	background: #ffffff;
+	width: 15%;
+	height: 20%;
+	opacity: 0.5;
+	margin:1%;
+	font-size: 20px;
+	color: #483d8b;
+
+}
