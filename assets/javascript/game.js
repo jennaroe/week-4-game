@@ -25,9 +25,9 @@
 	
 
 	var updateScore = function(){
-		$('score').empty();
-		$('score').append(score=0);
-		
+		$('#score').empty();
+		$('#score').append(score= 0);
+		$('#score').html('Crystal Value:  ')
 		$('#wins').empty();
 		$('#wins').append(wins);
 		$('#losses').empty();
