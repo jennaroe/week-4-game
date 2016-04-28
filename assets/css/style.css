@@ -1,9 +1,9 @@
 body{
   background: #cccccc;
-  background-image: url("../images/smbg2.jpg");
-  align-content: center;
-  text-align: center;
-  font-family: 'Merienda One', cursive;
+	  background-image: url("../images/smbg2.jpg");
+	  align-content: center;
+	  text-align: center;
+	  font-family: 'Merienda One', cursive;
 }
 .page-header{
 	width: 100%;
