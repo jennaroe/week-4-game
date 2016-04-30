@@ -5,7 +5,7 @@
 		var score = 0;
 		var counter;	
 		var rand = randomNumber(19,121);
-		var crystal = randomNumber(1,12);
+		var crystal = randomNumber(1,13);
 
 
 	function randomNumber(min, max) {
@@ -14,20 +14,20 @@
 	
 	$("#random").append(rand);
 
-	$('#button1').val(randomNumber(1,12));
+	$('#button1').val(randomNumber(1,13));
 
-	$('#button2').val(randomNumber(1,12));
+	$('#button2').val(randomNumber(1,13));
 
-	$('#button3').val(randomNumber(1,12));
+	$('#button3').val(randomNumber(1,13));
 
-	$('#button4').val(randomNumber(1,12));
+	$('#button4').val(randomNumber(1,13));
 
 	
 
 	var updateScore = function(){
 		$('#score').empty();
 		$('#score').append(score= 0);
-		$('#score').html('Crystal Value:  ')
+		$('#score').html('Crystal Value:  ');
 		$('#wins').empty();
 		$('#wins').append(wins);
 		$('#losses').empty();
@@ -64,22 +64,16 @@
            $('#win').text(wins);
            alert("You Win!!! Play Again?");
            updateScore();
-           refresh();
-            
+           refresh(); 
          }    
         else if (rand < score) {
             losses = losses + 1;
             $('#lose').text(losses);
             alert("YOU LOSE!!! Play Again?");
             updateScore();
-            refresh();
-            
+            refresh();   
          }     
 	 });
 
 });
 
-
-
-  	
-	
