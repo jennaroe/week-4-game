@@ -54,25 +54,26 @@
 		
 	};
 
-		var score = 0;
-		$('button').click(function(){
-		 	score = Number(score) + Number($(this).val());
-		 	$('#score').html("Crystal Value:      " +score);
+	var score = 0;
+		
+	$('button').click(function(){
+		 score = Number(score) + Number($(this).val());
+		 $('#score').html("Crystal Value:      " +score);
 
 	 	if (rand == score) {
-           wins = wins + 1;
-           $('#win').text(wins);
-           alert("You Win!!! Play Again?");
-           updateScore();
-           refresh(); 
-         }    
-        else if (rand < score) {
-            losses = losses + 1;
-            $('#lose').text(losses);
-            alert("YOU LOSE!!! Play Again?");
-            updateScore();
-            refresh();   
-         }     
+			   wins = wins + 1;
+			   $('#win').text(wins);
+			   alert("You Win!!! Play Again?");
+			   updateScore();
+			   refresh(); 
+         	}    
+		else if (rand < score) {
+		    losses = losses + 1;
+		    $('#lose').text(losses);
+		    alert("YOU LOSE!!! Play Again?");
+		    updateScore();
+		    refresh();   
+		 }     
 	 });
 
 });
